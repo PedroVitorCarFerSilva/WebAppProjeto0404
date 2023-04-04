@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebAppProjeto0404.Models.Categorico>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8"/>
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Novo Categorico", "Criar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new {/* id=item.CategoricoId */}) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {/* id=item.CategoricoId */}) |
+                @Html.ActionLink("Excluir", "Excluir", new {/* id=item.CategoricoId */})
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
