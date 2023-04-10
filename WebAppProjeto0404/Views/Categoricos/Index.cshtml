@@ -9,12 +9,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" lang="pt-br"/>
     <title>Index</title>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Novo Categorico", "Criar")
+        @Html.ActionLink("Novo Categorico", "Create")
     </p>
     <table class="table">
         <tr>
@@ -30,9 +30,9 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Editar", new {/* id=item.CategoricoId */}) |
-                @Html.ActionLink("Detalhes", "Detalhes", new {/* id=item.CategoricoId */}) |
-                @Html.ActionLink("Excluir", "Excluir", new {/* id=item.CategoricoId */})
+                @Html.ActionLink("Editar", "Editar", new {id=item.CategoricoId}) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {id=item.CategoricoId}) |
+                @Html.ActionLink("Excluir", "Excluir", new {id=item.CategoricoId})
             </td>
         </tr>
     }

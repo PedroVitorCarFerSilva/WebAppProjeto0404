@@ -22,5 +22,19 @@ namespace WebAppProjeto0404.Controllers
         {
             return View(categoricos);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Categorico categorico)
+        {
+            categorico.CategoricoId = categoricos.Select(m => m.CategoricoId).Max() + 1;
+            categoricos.Add(categorico);
+            return RedirectToAction("Index");
+        }
+
     }
 }

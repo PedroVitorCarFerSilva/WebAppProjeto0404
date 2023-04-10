@@ -16,7 +16,7 @@ namespace WebAppProjeto0404
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Categoricos", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
