@@ -26,6 +26,26 @@ namespace WebAppProjeto0404.Controllers
         {
             return View();
         }
+        public ActionResult Edit(long id)
+        {
+            return View(categoricos.Where(m => m.CategoricoId == id).First());
+        }
+        public ActionResult Details(long id)
+        {
+            return View(categoricos.Where(m => m.CategoricoId == id).First());
+        }
+        public ActionResult Delete(long id)
+        {
+            return View(categoricos.Where(t => t.CategoricoId == id).First());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(Categorico categorico)
+        {
+            categoricos.Remove(categoricos.Where(t => t.CategoricoId == categorico.CategoricoId).First());
+            return RedirectToAction("Index");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -36,5 +56,14 @@ namespace WebAppProjeto0404.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Categorico categorico)
+        {
+            categoricos.Remove(categoricos.Where(c => c.CategoricoId == categorico.CategoricoId).First());
+            categoricos.Add(categorico);
+            return RedirectToAction("Index");
+        }
     }
+
 }
