@@ -61,6 +61,7 @@ namespace WebAppProjeto0404.Controllers
             Fabricante fabricante = context.Fabricantes.Find(id);
             context.Fabricantes.Remove(fabricante);
             context.SaveChanges();
+            TempData["Message"] = "Fabricante \"" + fabricante.Nome + "\" foi removido";
             return RedirectToAction("Index");
         }
         public ActionResult Delete(long? id)
@@ -85,6 +86,7 @@ namespace WebAppProjeto0404.Controllers
             {
                 context.Entry(fabricante).State = EntityState.Modified;
                 context.SaveChanges();
+                TempData["Message"] = "Fabricante \"" + fabricante.Nome + "\" foi modificado";
                 return RedirectToAction("Index");
             }
             return View(fabricante);
@@ -96,6 +98,7 @@ namespace WebAppProjeto0404.Controllers
         {
             context.Fabricantes.Add(fabricante);
             context.SaveChanges();
+            TempData["Message"] = "Fabricante \"" + fabricante.Nome + "\" foi registrado";
             return RedirectToAction("Index");
         }
     }
