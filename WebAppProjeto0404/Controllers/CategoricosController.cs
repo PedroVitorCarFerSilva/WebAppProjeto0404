@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebAppProjeto0404.Models;
@@ -9,61 +11,95 @@ namespace WebAppProjeto0404.Controllers
 {
     public class CategoricosController : Controller
     {
-        private static IList<Categorico> categoricos = new List<Categorico>()
-        {
-            new Categorico(){ Nome = "Gabinete", CategoricoId = 1},
-            new Categorico(){ Nome = "Mouse", CategoricoId = 2},
-            new Categorico(){ Nome = "Teclado", CategoricoId = 3},
-            new Categorico(){ Nome = "Monitor", CategoricoId = 4},
-            new Categorico(){ Nome = "Dildo", CategoricoId = 5}
-        };
+        private EFContext context = new EFContext();
         // GET: Categoricos
         public ActionResult Index()
         {
-            return View(categoricos);
+            return View(
+                context.Categoricos.OrderBy(c => c.Nome)
+            );
         }
         public ActionResult Create()
         {
             return View();
         }
-        public ActionResult Edit(long id)
+
+        // GET: Categoricos/Edit/1
+        public ActionResult Edit(long? id)
         {
-            return View(categoricos.Where(m => m.CategoricoId == id).First());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categorico categorico = context.Categoricos.Find(id);
+            if (categorico == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categorico);
         }
-        public ActionResult Details(long id)
+
+        public ActionResult Details(long? id)
         {
-            return View(categoricos.Where(m => m.CategoricoId == id).First());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categorico categorico = context.Categoricos.Find(id);
+            if (categorico == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categorico);
         }
+
+        // POST: Categoricos/Delete/1
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
         {
-            return View(categoricos.Where(t => t.CategoricoId == id).First());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Categorico categorico)
-        {
-            categoricos.Remove(categoricos.Where(t => t.CategoricoId == categorico.CategoricoId).First());
+            Categorico categorico = context.Categoricos.Find(id);
+            context.Categoricos.Remove(categorico);
+            context.SaveChanges();
+            TempData["Message"] = "Categorico \"" + categorico.Nome + "\" foi removido";
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Categorico categorico)
+        public ActionResult Delete(long? id)
         {
-            categorico.CategoricoId = categoricos.Select(m => m.CategoricoId).Max() + 1;
-            categoricos.Add(categorico);
-            return RedirectToAction("Index");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categorico categorico = context.Categoricos.Find(id);
+            if (categorico == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categorico);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Categorico categorico)
         {
-            categoricos.Remove(categoricos.Where(c => c.CategoricoId == categorico.CategoricoId).First());
-            categoricos.Add(categorico);
+            if (ModelState.IsValid)
+            {
+                context.Entry(categorico).State = EntityState.Modified;
+                context.SaveChanges();
+                TempData["Message"] = "Categorico \"" + categorico.Nome + "\" foi modificado";
+                return RedirectToAction("Index");
+            }
+            return View(categorico);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Categorico categorico)
+        {
+            context.Categoricos.Add(categorico);
+            context.SaveChanges();
+            TempData["Message"] = "Categprico \"" + categorico.Nome + "\" foi registrado";
             return RedirectToAction("Index");
         }
     }
-
 }
