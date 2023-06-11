@@ -9,7 +9,7 @@ namespace WebAppProjeto0404.Models
     {
         public long? ProdutoId { get; set; }
         public string Nome { get; set; }
-        public long? CategoriaId { get; set; }
+        public long? CategoricoId { get; set; }
         public long? FabricanteId { get; set; }
         public Categorico Categorico { get; set; }
         public Fabricante Fabricante { get; set; }
