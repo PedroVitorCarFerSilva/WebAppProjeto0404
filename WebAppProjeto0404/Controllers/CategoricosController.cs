@@ -39,13 +39,15 @@ namespace WebAppProjeto0404.Controllers
             return View(categorico);
         }
 
+        // GET: Categoricos/Details/5
         public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categorico categorico = context.Categoricos.Find(id);
+            Categorico categorico = context.Categoricos.Where(f => f.CategoricoId == id).
+            Include("Produtos.Fabricante").First();
             if (categorico == null)
             {
                 return HttpNotFound();
