@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
-    ViewBag.Title = "Listagem de FABRICANTES";
+    ViewBag.Title = "Home";
 }
 
 <!DOCTYPE html>
@@ -16,38 +16,49 @@
     <div>
         <table class="table">
             <tr>
-                <th>
-                    Fabricantes
-                </th>
+                <th>Fabricantes</th>
             </tr>
             <tr>
                 @foreach (var item in Model.fabricante)
                 {
-
-                 <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                 </td>
-
-                }
-            </tr>
-        </table>
-        <table class="table">
-            <tr>
-                <th>
-                    Categoricos
-                </th>
-            </tr>
-            <tr>
-                @foreach (var item in Model.categorico)
-                {
-
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
+                        @Html.ActionLink(item.Nome, "Index", "Home", new { FabId = item.FabricanteId }, null)
                     </td>
-
                 }
             </tr>
         </table>
     </div>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>Categoricos</th>
+            </tr>
+            <tr>
+                @foreach (var item in Model.categorico)
+                {
+                    <td>
+                        @Html.ActionLink(item.Nome, "Index", "Home", new { CatId = item.CategoricoId }, null)
+                    </td>
+                }
+            </tr>
+        </table>
+    </div>
+
 </body>
+@if ((Model.produtos != null) && (Model.filtro == "Fabricante"))
+{
+    @Html.Partial("~/Views/Produtos/_PorFabricante.cshtml", Model.produtos.ToList())
+}
+@if ((Model.produtos != null) && (Model.filtro == "Categorico"))
+{
+    @Html.Partial("~/Views/Produtos/_PorCategorico.cshtml", Model.produtos.ToList())
+}
+
+
 </html>
+@section styles{
+    <link href="@Url.Content("~/content/DataTables-1.10.2/css/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+
+
