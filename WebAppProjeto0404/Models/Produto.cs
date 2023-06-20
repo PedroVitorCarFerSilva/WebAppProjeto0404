@@ -13,5 +13,7 @@ namespace WebAppProjeto0404.Models
         public long? FabricanteId { get; set; }
         public Categorico Categorico { get; set; }
         public Fabricante Fabricante { get; set; }
+        public string LogotipoMimeType { get; set; }
+        public byte[] Logotipo { get; set; }
     }
 }
