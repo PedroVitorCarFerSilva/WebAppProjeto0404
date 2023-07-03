@@ -7,6 +7,7 @@ using System.IO;
 using System.Web.Mvc;
 using WebAppProjeto0404.Models;
 using System.Net;
+using Modelo.Cadastros;
 
 namespace WebAppProjeto0404.Controllers
 {

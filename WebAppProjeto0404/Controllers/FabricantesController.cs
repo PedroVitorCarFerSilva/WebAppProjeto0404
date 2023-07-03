@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Modelo.Cadastros;
 using WebAppProjeto0404.Models;
 
 namespace WebAppProjeto0404.Controllers
