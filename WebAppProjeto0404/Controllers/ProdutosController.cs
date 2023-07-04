@@ -168,7 +168,10 @@ namespace WebAppProjeto0404.Controllers
             Produto produto = ObterProdutoPorId(id);
             if (produto != null)
             {
-                return File(produto.Logotipo, produto.LogotipoMimeType);
+                if (File(produto.Logotipo, produto.LogotipoMimeType) != null)
+                {
+                    return File(produto.Logotipo, produto.LogotipoMimeType);
+                }
             }
             return null;
         }
