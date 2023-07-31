@@ -59,10 +59,6 @@
       <Project>{0f56645a-c053-4d43-a973-80b269b3d55a}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebAppProjeto0404\WebAppProjeto0404.csproj">
-      <Project>{fc66832d-73dd-4fed-84dc-4fbd9278cf1a}</Project>
-      <Name>WebAppProjeto0404</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

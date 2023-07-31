@@ -253,6 +253,14 @@
       <Project>{0f56645a-c053-4d43-a973-80b269b3d55a}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{52de603a-1e56-433d-ad3c-e7ea3f6992ef}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servico\Servico.csproj">
+      <Project>{795efab8-c157-4f40-b6b6-38dde2bab672}</Project>
+      <Name>Servico</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
