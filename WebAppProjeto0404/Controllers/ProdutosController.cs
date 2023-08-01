@@ -74,6 +74,8 @@ namespace WebAppProjeto0404.Controllers
         // GET: Produtos/Edit/5
         public ActionResult Edit(long? id)
         {
+            ViewBag.CategoricoId = fabricanteServico.ObterFabricantesClassificadosPorNome();
+            ViewBag.FabricanteId = categoricoServico.ObterCategoricosClassificadasPorNome();
             PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
             return ObterVisaoProdutoPorId(id);
         }
