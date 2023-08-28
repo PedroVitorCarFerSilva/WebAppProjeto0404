@@ -13,8 +13,8 @@ namespace Persistencia.Contexts
     {
         public EFContext() : base("Asp_Net_MVC_CS")
         {
-            Database.SetInitializer<EFContext>(
-            new DropCreateDatabaseIfModelChanges<EFContext>());
+            //Database.SetInitializer<EFContext>(new
+            //MigrateDatabaseToLatestVersion<EFContext, Configuration>());
         }
         public DbSet<Categorico> Categoricos { get; set; }
         public DbSet<Fabricante> Fabricantes { get; set; }
