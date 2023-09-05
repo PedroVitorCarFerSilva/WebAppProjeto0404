@@ -13,7 +13,7 @@ namespace WebAppProjeto0404.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202307031616331_InitialCreate"; }
+            get { return "202306271821450_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

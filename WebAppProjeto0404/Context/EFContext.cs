@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Modelo.Tabelas;
 using Modelo.Cadastros;
-using System.Configuration;
+using WebAppProjeto0404.Migrations;
 
 namespace WebAppProjeto0404.Models
 {

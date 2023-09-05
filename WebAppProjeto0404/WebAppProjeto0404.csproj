@@ -210,9 +210,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202307031616331_InitialCreate.cs" />
-    <Compile Include="Migrations\202307031616331_InitialCreate.Designer.cs">
-      <DependentUpon>202307031616331_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202306271821450_InitialCreate.cs" />
+    <Compile Include="Migrations\202306271821450_InitialCreate.Designer.cs">
+      <DependentUpon>202306271821450_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Home.cs" />
@@ -245,6 +245,7 @@
     <Content Include="Views\Produtos\_PartialDetailsContentPanel.cshtml" />
     <Content Include="Views\Fabricantes\_PartialDetailsContentPanel.cshtml" />
     <Content Include="Views\Categoricos\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Produtos\_PartialEditContentPanel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -271,8 +272,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202307031616331_InitialCreate.resx">
-      <DependentUpon>202307031616331_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306271821450_InitialCreate.resx">
+      <DependentUpon>202306271821450_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
