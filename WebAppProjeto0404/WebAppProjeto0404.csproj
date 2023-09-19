@@ -136,6 +136,7 @@
     <Content Include="Content\DataTables-1.10.2\images\forward_disabled.png" />
     <Content Include="Content\DataTables-1.10.2\images\forward_enabled.png" />
     <Content Include="Content\DataTables-1.10.2\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.2\images\imagenone.png" />
     <Content Include="Content\DataTables-1.10.2\images\insert.png" />
     <Content Include="Content\DataTables-1.10.2\images\loading-background.png" />
     <Content Include="Content\DataTables-1.10.2\images\pdf.png" />
@@ -164,6 +165,33 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\DataTables-1.10.2\css\dataTables.responsive.scss" />
     <Content Include="Content\DataTables-1.10.2\css\dataTables.jqueryui.scss" />
+    <Content Include="Areas\Cadastros\Views\web.config" />
+    <Content Include="Areas\Tabelas\Views\web.config" />
+    <Content Include="Areas\Cadastros\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Fabricantes\Index.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Fabricantes\Create.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Fabricantes\Edit.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Fabricantes\Details.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Fabricantes\Delete.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\Index.cshtml" />
+    <Content Include="Areas\Tabelas\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Categoricos\Create.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Categoricos\Edit.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Categoricos\Details.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Categoricos\Delete.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\Create.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\Edit.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Categoricos\Index.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\Details.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\Delete.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\_PartialEditContentPanel.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\_PorCategorico.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Produtos\_PorFabricante.cshtml" />
+    <Content Include="Areas\Cadastros\Views\Fabricantes\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Areas\Tabelas\Views\Categoricos\_PartialDetailsContentPanel.cshtml" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -193,20 +221,30 @@
     <Content Include="Scripts\jquery-2.2.4.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Cadastros\CadastrosAreaRegistration.cs" />
+    <Compile Include="Areas\Tabelas\TabelasAreaRegistration.cs" />
     <Compile Include="Context\EFContext.cs" />
-    <Compile Include="Controllers\CategoricosController.cs" />
-    <Compile Include="Controllers\FabricantesController.cs" />
+    <Compile Include="Areas\Tabelas\Controllers\CategoricosController.cs" />
+    <Compile Include="Areas\Cadastros\Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Areas\Cadastros\Controllers\ProdutosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -255,6 +293,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Cadastros\Data\" />
+    <Folder Include="Areas\Tabelas\Data\" />
     <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>

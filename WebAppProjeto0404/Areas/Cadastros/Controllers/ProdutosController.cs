@@ -12,7 +12,7 @@ using Modelo.Tabelas;
 using Servico.Cadastros;
 using Servico.Tabelas;
 
-namespace WebAppProjeto0404.Controllers
+namespace WebAppProjeto0404.Areas.Cadastros.Controllers
 {
     public class ProdutosController : Controller
     {
@@ -221,7 +221,11 @@ namespace WebAppProjeto0404.Controllers
             Produto produto = produtoServico.ObterProdutoPorId(id);
             if (produto != null)
             {
-                return File(produto.Logotipo, produto.LogotipoMimeType);
+                if (produto.LogotipoMimeType != null)
+                {
+                    return File(produto.Logotipo, produto.LogotipoMimeType);
+                }
+                return null;
             }
             return null;
         }

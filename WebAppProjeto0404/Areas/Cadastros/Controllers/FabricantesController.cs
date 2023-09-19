@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppProjeto0404.Models;
 
-namespace WebAppProjeto0404.Controllers
+namespace WebAppProjeto0404.Areas.Cadastros.Controllers
 {
     public class FabricantesController : Controller
     {

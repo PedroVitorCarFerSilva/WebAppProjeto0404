@@ -1,0 +1,23 @@
+﻿@model Modelo.Tabelas.Categorico
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    ViewBag.Title = "Visualizando detalhes de um CATEGORICO";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Dados do categorico a ser removido
+    </div>
+    <div class="panel-body">
+        @Html.Partial("~/Views/Categoricos/_PartialDetailsContentPanel.cshtml", Model)
+    </div>
+    <div class="panel-footer panel-info">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Remover CATEGORICO" class="btn btn-danger" />
+            @Html.ActionLink("Retornar para a listagem", "Index", null,
+            new { @class = "btn btn-info" })
+        }
+    </div>
+</div>

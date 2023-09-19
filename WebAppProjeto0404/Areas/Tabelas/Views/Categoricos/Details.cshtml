@@ -1,0 +1,22 @@
+﻿@model Modelo.Tabelas.Categorico
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    ViewBag.Title = "Visualizando detalhes de um CATEGORICO";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Visualizando detalhes de um CATEGORICO
+    </div>
+    <div class="panel-body">
+        @Html.Partial("~/Views/Categoricos/_PartialDetailsContentPanel.cshtml", Model)
+    </div>
+    <div class="panel-footer panel-info">
+        @Html.ActionLink("Alterar", "Edit", new { id = Model.CategoricoId },
+        new { @class = "btn btn-info" })
+        @Html.ActionLink("Retornar para a listagem", "Index", null,
+        new { @class = "btn btn-info" })
+    </div>
+</div>
+
+@Html.Partial("~/Views/Produtos/_PorCategorico.cshtml", Model.Produtos.ToList())

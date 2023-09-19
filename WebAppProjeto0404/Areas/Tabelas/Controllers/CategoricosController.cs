@@ -10,7 +10,7 @@ using Modelo.Tabelas;
 using Modelo.Cadastros;
 using Servico.Tabelas;
 
-namespace WebAppProjeto0404.Controllers
+namespace WebAppProjeto0404.Areas.Tabelas.Controllers
 {
     public class CategoricosController : Controller
     {
